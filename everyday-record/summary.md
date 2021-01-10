@@ -1,6 +1,6 @@
 ##### 1.在以root为根节点的二叉树中，返回所有以root开始并且路径和等于给定值sum的路径数量：
-#####//解法1
 ```
+    //解法1
     public int pathSumWithRoot(TreeNode root, int sum){
         if(root==null){
             return 0;
@@ -13,8 +13,8 @@
         ret += pathSumWithRoot(root.left, nextSum) + pathSumWithRoot(root.left, nextSum);
     }
 ```
-#####//解法2：使用全局变量ret，不过这种解法没有解法1精妙
 ```
+    //解法2：使用全局变量ret，不过这种解法没有解法1精妙
     private int pathNumber = 0;
     public void hasPathFromRoot(TreeNode root, int sum){
         if(root==null){
@@ -56,12 +56,12 @@
 3.有返回值的递归函数+全局变量：全局变量才是最终结果
 比如题目 Path Sum III
 ##### (4)如何确定在递归函数f体中调用f的顺序
-a.问题要求显式地以前、中、后序遍历这个树的所有节点时，以标准的前、中、后递归函数写法遍历即可
-b.为了完成定义的递归函数的功能时必须按照某种顺序，这个顺序是由思路来决定的
-例子：比如LC671-Second Minimum Node In a Binary Tree
-    题目描述：给定一颗二叉树，满足一个节点要嘛只有2个子节点且父节点值为两个子节点中最小者，要嘛为叶子节点，求树中第二小的节点的值，也就是大于根节点的最小节点的值
-    重点：当root的节点有左右孩子时，如果root.left.val>root.val也不能说明root.left就是答案，因为在root的右子树中还有可能存在值大于root.val但是小于root.left.val的节点
-        所以此时leftMin必须等到findSecondMinimumValue(root.right)执行完毕可以比较大小返回
+a.问题要求显式地以前、中、后序遍历这个树的所有节点时，以标准的前、中、后递归函数写法遍历即可  
+b.为了完成定义的递归函数的功能时必须按照某种顺序，这个顺序是由思路来决定的  
+例子：比如LC671-Second Minimum Node In a Binary Tree  
+&nbsp;&nbsp;题目描述：给定一颗二叉树，满足一个节点要嘛只有2个子节点且父节点值为两个子节点中最小者，要嘛为叶子节点，求树中第二小的节点的值，也就是大于根节点的最小节点的值  
+&nbsp;&nbsp;重点：当root的节点有左右孩子时，如果root.left.val>root.val也不能说明root.left就是答案，因为在root的右子树中还有可能存在值大于root.val但是小于root.left.val的节点  
+&nbsp;&nbsp;&nbsp;&nbsp;所以此时leftMin必须等到findSecondMinimumValue(root.right)执行完毕可以比较大小返回  
 ```
     // 定义findSecondMinimumValue为返回以root为根节点的树中大于root节点值的最小值节点的值
     // 对以node为根节点的子树而言，f(node)返回的是比node大于的最小节点,而对node本身是否就是所求节点，必须在f(node's parent)中判断
@@ -99,3 +99,19 @@ b.为了完成定义的递归函数的功能时必须按照某种顺序，这个
 
 ##### (7)树类问题，第一关键是思路(难点的题目思路比较复杂)，第二关键是对于code，定义好递归函数的返回值和递归函数的作用
 ##### (8)树类问题，递归函数的定义就是数学模型的定义，对于有返回值的递归函数这个返回值是什么很关键，返回值可能就是最终结果，也可能只是为了递归函数真正的工作做准备
+
+#### 4.路径类题目：
+##### 1. Diameter of Binary Tree-树中任意两个节点之间的最长路径长度
+##### 2.Path Sum-树中是否存在这样的路径，使得从根节点到某一叶子节点的路径上所有节点值累加和等于给定值
+##### 3.Path Sum III-查找树中所有符合规定条件的路径数量，规定是路径可以不从root开始，也可以不以leaf结束，但必须是一直向下延展的且连续，且路径上所有节点值累加和等于给定值
+(1)两个函数解法：函数1遍历所有节点，函数2求从单个节点开始向下的符合条件的所有路径数量  
+(2)是否可以定义一个函数f1返回以root节点为根节点的树中所有符合条件的路径数量(为了只需要遍历一遍树得到结果)，不可以，无法实现  
+(3)是否可以定义一个函数f2返回以root节点开始向下的符合条件的路径数量+全局变量来实现(为了只需要遍历一遍树得到结果)，不可以，这样定义要完成题目的要求的话，  
+f2虽然只返回从给定root，向下符合条件的所有路径值，但是必须在计算root的符合条件的所有路径数量过程中对以root为根节点的所有节点调用f2(node, sum)才行，
+但是对于一个parent节点，f2(parent,)如何确定在递归函数f体中调用f的顺序 sum)需要f2(parent.left, sum-parent.val)，而不是f2(parent,left, sum)，但是要通过这个函数达到题目的要就必须要有f2(parent,left, sum)  
+而如果在f2(parent, sum)的函数体中同时写上f2(parent.left, sum-parent.val)和f2(parent,left, sum)，这其实就是(1)两个函数解法了  
+##### 4.Minimum Depth of Binary Tree-得到从树根节点到叶子节点的最短高度(路径节点数量)
+##### 5.Longest Univalue Path-得到树中任意两个节点之间的最长的路径，返回其长度，要求路径中所有节点值一样
+(1)直接定义一个函数返回题目所求是做不到的
+(2)定义一个函数f(root, val)返回从root开始的向下的最长连续路径，要求路径上所有值都等于val
+##### 14-lc：转化为求root树中比root.val大的最小值
