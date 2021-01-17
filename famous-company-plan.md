@@ -51,7 +51,7 @@ redis实战（很多redis实际可以使用的场景）告诉了redis到底可�
 zookeeper
 设计数据密集型应用
 消息队列
-docker
+docker,k8s,pipeline,jekens
 # 项目
 1.github找一个应用项目  
 2.github找一个大神的轮子模仿  
@@ -66,6 +66,7 @@ uml图：时序图，类图、用例图
  
 # 简历编写
 需不需要加上图片（专业的职业照）
+突出自己之前干的事为公司节约了多少钱，挣了多少钱
 
 #书单推荐
 #### designing data-intensive applications
@@ -79,3 +80,6 @@ uml图：时序图，类图、用例图
 #### The linux command line
 #### 网络是怎么连接的
 #### 重构-改善代码既有的设计
+
+# 看书、学习的建议/忠告/原则
+看每一本书，都不是为了将其所有知识背下来，而是弄清楚一些新的概念，知道有什么，
