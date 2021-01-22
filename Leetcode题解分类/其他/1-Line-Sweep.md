@@ -19,7 +19,9 @@
 时间O(M)，空间O(M)，对于特殊情况很容易内存溢出
 而且起飞降落时刻相同时，还需要特别处理，不能直接time[i]++或time[i]--，要类似于哈希表使用拉链表存储（降落在前、起飞在后）
 treemap只适合求overlap个数的问题
-
+### 思路3：TreeMap
+其实还是扫描线算法，不过就是用TreeMap来排序罢了
+TreeMap参考：https://www.liaoxuefeng.com/wiki/1252599548343744/1265117109276544
 ### lintCode-919.[meeting-rooms-ii](https://www.lintcode.com/problem/meeting-rooms-ii/description)（最大重叠区间数）
 #### 题目描述
 给定一系列的会议时间间隔intervals，包括起始和结束时间[[s1,e1],[s2,e2],...] (si < ei)，找到所需的最小的会议室数量。
@@ -58,7 +60,8 @@ It is guaranteed that no two availability slots of the same person intersect wit
 Input: slots1 = [[10,50],[60,120],[140,210]], slots2 = [[0,15],[60,70]], duration = 8
 Output: [60,68]  
 #### 思路-双指针打擂台
-题目保证slots和slots2都满足属于同一个slot的任意两个区间不会相交, 将slots1和slots2分别按照每个区间的startTime排序，按照双指针打擂台，找到第一个符合长度要求的重叠区间就返回，没找到时，抛弃endTime较小的区间
+题目要求的是时间最早的重叠长度符合要求的重叠区间，所以对slots1和slots2分别按照每个区间的startTime排序照双指针打擂台，找到第一个符合长度要求的重叠区间就返回，没找到时，抛弃endTime较小的区间
+题目保证了slots和slots2都满足属于同一个slot的任意两个区间不会相交，所以可以用双指针
 ```
 class Solution {
     public List<Integer> minAvailableDuration(int[][] slots1, int[][] slots2, int duration) {
@@ -95,7 +98,7 @@ Each employee has a list of non-overlapping Intervals, and these intervals are i
 Return the list of finite intervals representing common, positive-length free time for all employees, also in sorted order.  
 The Intervals is an 1d-array. Each two numbers shows an interval. For example, [1,2,8,10] represents that the employee works in [1,2] and [8,10].  
 Also, we wouldn't include intervals like [5, 5] in our answer, as they have zero length.  
-
+### lintcode-850.[Employee Free Time](https://www.lintcode.com/problem/employee-free-time/description)
 ### leetcode-554.[Brick Wall](https://leetcode-cn.com/problems/brick-wall/)
 ### leetcode-729.[My Calendar I](https://leetcode-cn.com/problems/my-calendar-i/)
 ### leetcode-731.[My Calendar II](https://leetcode-cn.com/problems/my-calendar-ii/)
