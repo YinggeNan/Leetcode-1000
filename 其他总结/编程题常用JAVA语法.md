@@ -21,3 +21,10 @@ new String(new char{'a','i'});
 
 #### 4-字符串排序，长度相等的字符串，字典顺序在前面的排在前面
 s1.compareTo(s0); // 返回true则s1字典序更小
+
+#### 5-map检查是否存在某个key
+map.containsKey(1);
+
+#### 6.注意Integer、Character这种包装类对象不能用==来做值比对，必须用equals()
+
+#### 7.数组splice
