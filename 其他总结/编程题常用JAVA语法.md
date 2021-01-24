@@ -15,3 +15,9 @@ new HashMap<Integer, String>(){{
     put("k1","v1");
     put("k2","v2");
 }
+#### 3-char[]和String互转
+"ss".toCharArray();
+new String(new char{'a','i'});
+
+#### 4-字符串排序，长度相等的字符串，字典顺序在前面的排在前面
+s1.compareTo(s0); // 返回true则s1字典序更小

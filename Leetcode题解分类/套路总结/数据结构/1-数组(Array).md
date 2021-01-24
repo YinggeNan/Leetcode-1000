@@ -1,39 +1,54 @@
-#### Move Zeroes-easy  
-题目描述: 把数组中的 0 移到末尾
-思路: 重插入数组
+#### leetcode-283.[Move Zeroes-easy](https://leetcode-cn.com/problems/move-zeroes/)
+>原地重建数组
 
-#### Reshape the Matrix-easy
-思路: 重插入二维数组
+题目描述: 把数组中的所有0移到末尾 ，保持其他元素的相对位置不变  
+思路: 扫描数组，index=0，元素大于0时插入在index位置且index++，设数组长为N，数组扫描完毕后将[index,N-1]区间赋值为0
+#### leetcode-566.[Reshape the Matrix-easy](https://leetcode-cn.com/problems/reshape-the-matrix/)
+>原地重建数组
 
-#### Max Consecutive Ones-easy
+题目描述：将一个矩阵重塑为另一个大小不同的新矩阵，但保留其原始数据，重构后的矩阵需要将原始矩阵的所有元素以相同的行遍历顺序填充，
+给出一个由二维数组表示的矩阵，以及两个正整数r和c，分别表示想要的重构的矩阵的行数和列数  
+思路: 重插入二维数组，对原二维数组的任意一个数的坐标(x,y)，计算其在新二维数组的新坐标(x1,y1)并插入    
+如果把二维数组呈一维展开，设(x,y)为原数组的第k个数，如何计算k？  
+(1)累加器count计数得到  
+(2)公式计算k = x*c0+y+1;c0是原数组列宽度   
+累加器比公式计算更简单，不需要重复做计算  
 
-题目描述: 找出数组中最长的连续 1
-思路: 设置两个变量，全局连续1 globalAcount、单次扫描连续1 partialCount，
-遍历数组，遇到1则partialCount加1，遇到0则设置globalAcount为max(globalAcount为max, partialCount)，
-且partialCount重置为0
+```
+// 从原数组count->新数组index
+if(k>=c && k%r==0){
+    x1 = k/c-1;
+    y1 = c-1;
+}else{
+    x1 = k/c;
+    y1 = k%c-1;
+}
+```
+```
+// 从原数组index->新数组index
+x1 = (k-1)/c;
+y1 = (k-1)%c;
+```
+#### Leetcode-485.[Max Consecutive Ones-easy](https://leetcode.com/problems/max-consecutive-ones/)
+> 统计最大连续的某个数
 
-#### Search a 2D Matrix II -easy
+题目描述: 找出数组中最长的连续 1的长度
+思路: 设置两个变量，全局连续1 globalAcount、单次扫描连续1 partialCount，遍历数组，遇到1则partialCount加1，遇到0则设置globalAcount为max(globalAcount为max, partialCount)，且partialCount重置为0，
+扫描完毕，最后设置globalAcount为max(globalAcount为max, partialCount)
+#### Leetcode-240.[Search a 2D Matrix II -Medium](https://leetcode.com/problems/search-a-2d-matrix-ii/)
+问题: 在一个M*N的矩阵中，每行元素从左到右递增，每列元素从上到下递增，给定一个值target，查找target是否存在于矩阵中  
+思路: 从右上角元素x开始，x>target则转向x的左边的第一个元素，x<target则转向x的下方第一个元素，时间复杂度O(M+N)
 
-对于每行从左到右升序，每列从上到下升序的matrix，
-查找某个元素，从右上角元素x开始，x>target则转向x的left，
-x<target则转向x的down
-
-#### Find the Duplicate Number-Medium
-
-题目描述: n+1个数放到长度为n的数组里，且每个数取值范围1~n,只有一个重复数字,求重复数字
-思路:
-快慢指针：对于这种将集合S中的所有元素映射到自身集合S的问题，可以用tortiose and hare algorithm算法
-输入数组为nums，将其一个index看作一个节点，则其所有index的指向关系构成了一个循环链表，
-fast指针步长为2(nums[nums[fast])，slow指针步长为1(nums[slow]
-第一个循环找相遇点：初始为fast=nums[nums[0]], slow=nums[0]，fast步长2，slow步长1出发，相遇于x
-第二个循环找重复元素(cycle开始节点)：fast从x，slow从0开始都以步长为1继续出发，最后相遇于重复元素值
-
-
-二分搜索：value range搜索，对[1,n]进行搜索，设low=1, high = n+1(为了mid能为n), mid=low+(high-low)/2;
-统计数组里小于等于mid(为什么有小于的情况，因为可能数组的所有数都为同一个值)的数count，如果count<mid，
-则说明重复的数在[mid+1,high]之间则low = mid+1;如果count>mid，说明重复的数在[low,mid]之间则high=mid
-最后low和high会相遇于mid
-
+#### Leecode-287.[Find the Duplicate Number-Medium](https://leetcode.com/problemset/all/?search=Find%20the%20Duplicate%20Number)
+题目描述: n+1个数放到长度为n的数组里，且每个数取值范围1~n,只有一个重复数字,求这个重复数字  
+要求用O(1)空间解法
+思路1-快慢指针：对于这种将集合S中的所有元素映射到自身集合S的问题，可以用tortiose and hare algorithm算法
+    输入数组为nums，将其一个index看作一个节点，则其所有index的指向关系构成了一个循环链表，
+    fast指针步长为2(nums[nums[fast])，slow指针步长为1(nums[slow]
+    第一个循环找相遇点：初始为fast=nums[nums[0]], slow=nums[0]，fast步长2，slow步长1出发，相遇于x
+    第二个循环找重复元素(cycle开始节点)：fast从x，slow从0开始都以步长为1继续出发，最后相遇于重复元素值
+思路2-二分搜索：value range搜索，对[1,n]进行搜索，设low=1, high = n+1(为了mid能为n), mid=low+(high-low)/2;
+统计数组里小于等于mid(为什么有小于的情况，因为可能数组的所有数都为同一个值)的数count，如果count<mid，则说明重复的数在[mid+1,high]之间则low = mid+1;如果count>mid，说明重复的数在[low,mid]之间则high=mid，最后low和high会相遇于mid
 #### Set Mismatch-Easy
 
 题目描述: 
