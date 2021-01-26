@@ -1,6 +1,7 @@
+## 滑动窗口题眼-连续字符的子串
 #### leetcode-3.[Longest Substring Without Repeating Characters]
-题目：给定一个字符串，请你找出其中不含有重复字符的最长子串的长度。  
->滑动窗口题眼：连续字符的子串
+题目：给定一个字符串，请你找出其中不含有重复字符的最长子串的长度。
+>right指针遇到第一个窗口中有重复元素,新left=max.(left, map.get(left));
 
 思路：判断有无重复元素用map {value:index}，无重复元素的子串用left,right两个指针来限定范围。  
 遇到重复元素时对窗口左边界的处理: left = Math.max(left, map.get(str[right]))  
@@ -9,8 +10,7 @@
 #### leetcode-76.[Minimum Window Substring](https://leetcode-cn.com/problems/minimum-window-substring/)
 题目描述：给字符串s,字符串t,返回s中涵盖t所有字符的最小子串。如果s中不存在涵盖 所有字符的子串，则返回
 空字符串""  
->滑动窗口题眼：连续字符的子串
->right移动找可能解(包含了所有字符，但是可能有其他字符)，left移动找符合要求的解
+>right右移找可能解(包含了所有字符既包含t的所有可能的key，且频数大于等于，但是可能有其他字符)，left移动找符合要求的解
 
 例子：  
 输入：s = "ADOBECODEBANC", t = "ABC"
@@ -23,7 +23,6 @@
 [参考](https://leetcode-cn.com/problems/minimum-window-substring/solution/76-zui-xiao-fu-gai-zi-chuan-hua-dong-chu-9ju0/)
 #### leetcode-209
 题目描述：给定一个含有n个正整数的数组和一个正整数s，找出该数组中满足其和≥s的长度最小的连续子数组，并返回其长度，若不存在符合条件的子数组，返回0
->滑动窗口题眼：连续字符的子串   
 >right移动找可能解(包含了所有字符，但是可能有其他字符)，left移动找符合要求的解
 > 思路类似leetcode76.[Minimum Size Subarray Sum](https://leetcode-cn.com/problems/minimum-size-subarray-sum/)  
 
@@ -107,7 +106,7 @@ s: "abab" p: "ab"
 #### leetcode-395
 题目描述：找到给定字符串（由小写字符组成）中的最长子串 T ， 要求 T 中的每一字符出现次数都不少于 k 。输出 T 的长度
 
-思路1-滑动窗口解法：  
+思路1-滑动窗口解法： 
 右移动窗口，统计窗口中频数>=k的key个数validKey，然后右移动left，当window.size()==validkey时，窗口的子串符合要求，问题的难点在于right什么时候需要停下来右移动left，考虑只有小写字符，所以窗口中最多不同的数有26个，所以对上面程序片段循环考虑，考虑right在window.size()为[1,26]时停下，得到最大子串长度，O(N)  
 [思路2](https://leetcode-cn.com/problems/longest-substring-with-at-least-k-repeating-characters/solution/26zi-fu-qian-zhui-he-fen-zhi-er-cha-shu-de-hou-xu-/)-前缀和+分治  
 有点难理解
