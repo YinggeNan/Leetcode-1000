@@ -1,16 +1,17 @@
-# 一.斐波那契数列
-# 二.矩阵路径
-# 三.数组区间
-# 四.分割整数
+### 一.斐波那契数列
+### 二.矩阵路径
+### 三.数组区间
+53. Maximum Subarray (Easy)
+### 四.分割整数
 
-# 五.最长递增子序列
-## 1.[LC300- Longest Increasing Subsequence](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+### 五.最长递增子序列
+## 1.[LC300-Longest Increasing Subsequence](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
 
-## 2.[LC646-Maximum Length of Pair Chain](https://leetcode-cn.com/problems/most-stones-removed-with-same-row-or-column/)
+#### 2.[LC646-Maximum Length of Pair Chain](https://leetcode-cn.com/problems/most-stones-removed-with-same-row-or-column/)
 思路：
-设dp[n]为以index=n元素结尾的最长数对链的长度，则dp[n] = max(dp[i] | i<n&&pairs[i][1]<pairs[n][1]);dp数组的最大值就是结果
+设dp[n]为以index=n元素结尾的最长数对链的长度，则$dp[n] = max(dp[i] | i<n&&pairs[i][1]<pairs[n][1]);dp$数组的最大值就是结果
 先对数组预处理，按照pair的第一个元素或者第二个元素排序
-## 2.[LC376-Wiggle Subsequence ](https://leetcode-cn.com/problems/most-stones-removed-with-same-row-or-column/)
+#### 3.[LC376-Wiggle Subsequence](https://leetcode-cn.com/problems/most-stones-removed-with-same-row-or-column/)
 描述：如果连续数字之间的差严格地在正数和负数之间交替，则数字序列称为摆动序列，子序列是指从原序列中删除某些元素后剩下的元素组成的序列，要求保持剩下的元素在nums中的相对位置不变，
 求所给序列的最长连续摆动子序列       
 思路：  
@@ -31,15 +32,14 @@ down[n]为index范围[0~n]中以某一个元素结尾的最长下降摆动子序
     }
 ```
 ## 3.[最长数对链]
-# 六.最长公共子序列
-#七.背包
-## 0/1背包
-## 完全背包
-## 二维费用的背包
-## 多重背包
-## 背包物品带顺序（排列）和不带顺序（组合）
+### 六.最长公共子序列
+### 七.0/1背包
+### 八.完全背包
+### 九.二维费用的背包
+### 十.多重背包
+### 十一.物品带顺序的背包（排列）和不带顺序（组合）
 
-## 背包dp[]数组
+
 ###长度
 w+1
 ### 初始化
@@ -51,24 +51,29 @@ w+1
 (2)LC494. Target Sum  
 和上面类似的分析去看dp[0]的意义  
 (3)LC474. Ones and Zeroes  
-# 八.股票交易
+## 八.股票交易
 ## 通解
+参考：https://leetcode-cn.com/circle/article/qiAgHn/
+参考：https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/discuss/108870/Most-consistent-ways-of-dealing-with-the-series-of-stock-problems
 ### 描述
 给一个价格数组prices[]，index=i表示第i天的股票价格为prices[i]，每天最多只能执行一个买或卖的操作，给定最多进行k手交易（一手交易包括一次买和一次卖），求能获得的最大收益，一个人最多同时只能持有一个股票
 ### 递推方程
 T[i][k]表示第i天结束时，在第0~i天最多进行k手交易后可以得到的最大收益，与T[i][k]相关的子问题有T[i-1][k],T[i-1][k-1],T[i]][k-1]，如何得到递推方程/转移方程  
 因为一个人买入一个股票前，必须这个人当前持有的股票为0，卖出一个股票前必须当前持有的股票数量为1，所以可以根据第i天可以执行的操作：buy/sell/rest来讨论  
-[i][k][1] = max(T[i-1][k][1], T[i-1][k-1][0] - prices[i])  
+T[i][k][1] = max(T[i-1][k][1], T[i-1][k-1][0] - prices[i])  
 T[i][k][0] = max(T[i-1][k][0], T[i-k][k][1] + prices[Ti])
 
 ## 特殊case
 ### k=1，只能进行一手交易
 T[i][1][1] = max(T[i-1][1][1], T[i-1][0][0] - prices[i])
-T[i][1][0] = max(T[i-1][1][0], T[i-k][1][1] + prices[i])
+T[i][1][0] = max(T[i-1][1][0], T[i-1][1][1] + prices[i])
 ### k=2，可以进行多手交易
 ### k=+Infinity(可以进行无数手交易)
 ### k为任意值
 ### k=+Infinity且有冷却期
 ### k=+Infinity且交易费用
 ## 121. Best Time to Buy and Sell Stock( k=1 )
-# 九.字符串编辑
+### 九.字符串编辑
+#### leetcode-53. Maximum Subarray (Easy)
+#### leetcode-392. Is Subsequence (Medium)
+>动态规划判断是否子序列,对于海量输入降低处理时间
