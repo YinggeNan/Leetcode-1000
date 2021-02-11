@@ -5,13 +5,13 @@
 ### 四.分割整数
 
 ### 五.最长递增子序列
-## 1.[LC300-Longest Increasing Subsequence](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+## 1.[LC300-Longest Increasing Subsequence]
 
-#### 2.[LC646-Maximum Length of Pair Chain](https://leetcode-cn.com/problems/most-stones-removed-with-same-row-or-column/)
+#### 2.[LC646-Maximum Length of Pair Chain]
 思路：
 设dp[n]为以index=n元素结尾的最长数对链的长度，则$dp[n] = max(dp[i] | i<n&&pairs[i][1]<pairs[n][1]);dp$数组的最大值就是结果
 先对数组预处理，按照pair的第一个元素或者第二个元素排序
-#### 3.[LC376-Wiggle Subsequence](https://leetcode-cn.com/problems/most-stones-removed-with-same-row-or-column/)
+#### 3.[LC376-Wiggle Subsequence]
 描述：如果连续数字之间的差严格地在正数和负数之间交替，则数字序列称为摆动序列，子序列是指从原序列中删除某些元素后剩下的元素组成的序列，要求保持剩下的元素在nums中的相对位置不变，
 求所给序列的最长连续摆动子序列       
 思路：  

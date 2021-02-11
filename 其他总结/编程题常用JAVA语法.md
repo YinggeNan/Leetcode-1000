@@ -24,7 +24,16 @@ s1.compareTo(s0); // 返回true则s1字典序更小
 
 #### 5-map检查是否存在某个key
 map.containsKey(1);
-
 #### 6.注意Integer、Character这种包装类对象不能用==来做值比对，必须用equals()
 
 #### 7.数组splice
+#### 8-得到某个范围内的随机值
+Random rand = new Random(); //使用系统时间作为随机种子
+rand.nextInt(10); //得到[0,10)的随机整数
+#### 9-List的子序列
+List<$Integer$> list = new ArrayList<>();
+list.subList(0, 2); // [0,2)
+#### 10-List一次性加入一个序列
+list.addALl(list.subList(0,2));
+#### 11-构造数组元素为List类型的数组
+List<$Integer$>[] list = new ArrayList[2]; // 不能写成 new ArrayList<>[2]

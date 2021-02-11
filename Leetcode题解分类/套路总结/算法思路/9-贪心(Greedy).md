@@ -1,5 +1,6 @@
 #### leetcode-455.Assign Cookies (Easy)
 题目描述：每个孩子都有一个满足度 grid，每个饼干都有一个大小 size，只有饼干的大小大于等于一个孩子的满足度，该孩子才会获得满足。求解最多可以获得满足的孩子数量。
+思路：
 #### leetcode-435.Non-overlapping Intervals (Medium)
 题目描述：计算让一组区间不重叠所需要移除的区间个数，[1, 2]和[2, 3]不算是重叠区间
 #### leetcode-452.Minimum Number of Arrows to Burst Balloons (Medium)
