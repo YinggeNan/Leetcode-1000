@@ -75,7 +75,7 @@ index从0~t-1的s、t中的字符map的数字；
 插入新值N时，如果map中有N-1，那么也就意味着原来的以N-1为右边界的连续数组的长度延长了1
 所以需要更新该连续数组的左边界的边界分数，其右边界已经成为了中间节点，如果map中右N+1，更新其连续数组的右边界的边界分数，
 其左边界已经成为了中间节点
-参考: https://leetcode.com/problems/longest-consecutive-sequence/discuss/41055/My-really-simple-Java-O(n)-solution-Accepted
+参考: https://leetCode.com/problems/longest-consecutive-sequence/discuss/41055/My-really-simple-Java-O(n)-solution-Accepted
 ```
 ## Is Subsequence
 ```

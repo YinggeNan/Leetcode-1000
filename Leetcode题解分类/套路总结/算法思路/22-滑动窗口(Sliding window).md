@@ -1,5 +1,5 @@
 ## 滑动窗口题眼-连续字符的子串
-#### leetcode-3.[Longest Substring Without Repeating Characters]
+#### leetCode-3.[Longest Substring Without Repeating Characters]
 题目：给定一个字符串，请你找出其中不含有重复字符的最长子串的长度。
 >right指针遇到第一个窗口中有重复元素,新left=max.(left, map.get(left));
 
@@ -7,7 +7,7 @@
 遇到重复元素时对窗口左边界的处理: left = Math.max(left, map.get(str[right]))  
 (1)比如abca,初始化left=0，right=3时str[left]和str[right]都是a，表示本轮无重复元素结束, 且index从[left+1,right)开始的所有字串长度都小于index=0开始的字串，left应该直接直接置为right，置maxLength = Math.max(maxLength, right-left)  
 (2)而abcafb，left从3开始，right=5时，map的key有a,b,c,f, str[right]在map中存在了，但是此时left>1，之前的b不在当前窗口中，所以不需要把当前窗口截断  
-#### leetcode-76.[Minimum Window Substring](https://leetcode-cn.com/problems/minimum-window-substring/)
+#### leetCode-76.[Minimum Window Substring](https://leetCode-cn.com/problems/minimum-window-substring/)
 题目描述：给字符串s,字符串t,返回s中涵盖t所有字符的最小子串。如果s中不存在涵盖 所有字符的子串，则返回
 空字符串""  
 >right右移找可能解(包含了所有字符既包含t的所有可能的key，且频数大于等于，但是可能有其他字符)，left移动找符合要求的解
@@ -19,18 +19,18 @@
 1.left,right初始化为0，设置need,window两个map，用来保存字符频数{char:count}
 2.right不断右移找到可行解  
 3.left左移动找到本次可行解的最优解并更新全局最优解，直到本轮可行解无解，继续2 
-[参考代码](https://leetcode-cn.com/submissions/detail/140923136/)  
-[参考](https://leetcode-cn.com/problems/minimum-window-substring/solution/76-zui-xiao-fu-gai-zi-chuan-hua-dong-chu-9ju0/)
-#### leetcode-209
+[参考代码](https://leetCode-cn.com/submissions/detail/140923136/)  
+[参考](https://leetCode-cn.com/problems/minimum-window-substring/solution/76-zui-xiao-fu-gai-zi-chuan-hua-dong-chu-9ju0/)
+#### leetCode-209
 题目描述：给定一个含有n个正整数的数组和一个正整数s，找出该数组中满足其和≥s的长度最小的连续子数组，并返回其长度，若不存在符合条件的子数组，返回0
 >right移动找可能解(包含了所有字符，但是可能有其他字符)，left移动找符合要求的解
-> 思路类似leetcode76.[Minimum Size Subarray Sum](https://leetcode-cn.com/problems/minimum-size-subarray-sum/)  
+> 思路类似leetCode76.[Minimum Size Subarray Sum](https://leetCode-cn.com/problems/minimum-size-subarray-sum/)  
 
 思路:  
 0.left = 0, right = 0  
 1.right右移动直到找到可行解  
 3.left左移动找到本次可行解的最优解并更新全局最优解，直到本轮可行解无解，继续2 
-#### leetcode-424.[Longest Repeating Character Replacement](https://leetcode-cn.com/problems/longest-repeating-character-replacement/)
+#### leetCode-424.[Longest Repeating Character Replacement](https://leetCode-cn.com/problems/longest-repeating-character-replacement/)
 题目描述：给一个仅由大写英文字母组成的字符串，可将任意位置上的字符替换成另外的字符，可最多替换k次,找到包含重复字母的最长子串的长度
 >窗口扩张+窗口滑动
 
@@ -62,8 +62,8 @@
         return right - left;
     }
 ```
-[参考]https://leetcode-cn.com/problems/longest-repeating-character-replacement/solution/tong-guo-ci-ti-liao-jie-yi-xia-shi-yao-shi-hua-don/)
-#### leetcode-438
+[参考]https://leetCode-cn.com/problems/longest-repeating-character-replacement/solution/tong-guo-ci-ti-liao-jie-yi-xia-shi-yao-shi-hua-don/)
+#### leetCode-438
 题目描述：给定一个字符串 s 和一个非空字符串 p，找到 s 中所有是 p 的字母异位词的子串，返回这些子串的起始索引，字符串只包含小写英文字母
 >right移动找可能解(包含了所有字符，但是可能有其他字符)，left移动找符合要求的解(right-left-1==window.size())
 
@@ -84,7 +84,7 @@ s: "abab" p: "ab"
 起始索引等于 0 的子串是 "ab", 它是 "ab" 的字母异位词。  
 起始索引等于 1 的子串是 "ba", 它是 "ab" 的字母异位词。  
 起始索引等于 2 的子串是 "ab", 它是 "ab" 的字母异位词。  
-#### leetcode-567
+#### leetCode-567
 题目描述：给定两个字符串 s1 和 s2，写一个函数来判断 s2 是否包含 s1 的排列。 
 >right移动找可能解(包含了所有字符，但是可能有其他字符)，left移动找符合要求的解(s1.length()==window.size())
 
@@ -95,7 +95,7 @@ s: "abab" p: "ab"
 例2：
 输入: s1= "ab" s2 = "eidboaoo"  
 输出: False  
-#### leetcode-713
+#### leetCode-713
 题目描述：给定一个正整数数组 nums，找出该数组内乘积小于 k 的连续的子数组的个数。
 >right右移当窗口内乘积>=k时left右移找符合要求的解
 
@@ -103,18 +103,18 @@ s: "abab" p: "ab"
 输出: 8  
 解释: 8个乘积小于100的子数组分别为: [10], [5], [2], [6], [10,5], [5,2], [2,6], [5,2,6]。  
 需要注意的是 [10,5,2] 并不是乘积小于100的子数组。  
-#### leetcode-395
+#### leetCode-395
 题目描述：找到给定字符串（由小写字符组成）中的最长子串 T ， 要求 T 中的每一字符出现次数都不少于 k 。输出 T 的长度
 
 思路1-滑动窗口解法： 
 右移动窗口，统计窗口中频数>=k的key个数validKey，然后右移动left，当window.size()==validkey时，窗口的子串符合要求，问题的难点在于right什么时候需要停下来右移动left，考虑只有小写字符，所以窗口中最多不同的数有26个，所以对上面程序片段循环考虑，考虑right在window.size()为[1,26]时停下，得到最大子串长度，O(N)  
-[思路2](https://leetcode-cn.com/problems/longest-substring-with-at-least-k-repeating-characters/solution/26zi-fu-qian-zhui-he-fen-zhi-er-cha-shu-de-hou-xu-/)-前缀和+分治  
+[思路2](https://leetCode-cn.com/problems/longest-substring-with-at-least-k-repeating-characters/solution/26zi-fu-qian-zhui-he-fen-zhi-er-cha-shu-de-hou-xu-/)-前缀和+分治  
 有点难理解
-#### leetcode-763
+#### leetCode-763
 题目描述：字符串 S 由小写字母组成。我们要把这个字符串划分为尽可能多的片段，同一字母最多出现在一个片段中。返回一个表示每个字符串片段的长度的列表。
 
-[贪心法](https://leetcode-cn.com/problems/partition-labels/solution/hua-fen-zi-mu-qu-jian-by-leetcode-solution/)
-#### leetcode-30
+[贪心法](https://leetCode-cn.com/problems/partition-labels/solution/hua-fen-zi-mu-qu-jian-by-leetCode-solution/)
+#### leetCode-30
 >(1)word作为targetMap的key
 >(2)left,right指针的初始位置范围是[0,word.length-1]
 
@@ -132,11 +132,11 @@ s: "abab" p: "ab"
   s = "wordgoodgoodgoodbestword",  
   words = ["word","good","best","word"]  
 输出：[]  
-#### leetcode-845
-#### leetcode-881
-#### leetcode-904
-#### leetcode-978
-#### leetcode-992
-#### leetcode-1004
-#### leetcode-1040
-#### leetcode-1052
+#### leetCode-845
+#### leetCode-881
+#### leetCode-904
+#### leetCode-978
+#### leetCode-992
+#### leetCode-1004
+#### leetCode-1040
+#### leetCode-1052

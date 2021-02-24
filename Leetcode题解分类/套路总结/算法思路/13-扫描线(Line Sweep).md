@@ -1,4 +1,4 @@
-### LintCode-391.[Number of Airplanes in the Sky](https://www.lintcode.com/problem/number-of-airplanes-in-the-sky/description)
+### lintCode-391.[Number of Airplanes in the Sky](https://www.lintCode.com/problem/number-of-airplanes-in-the-sky/description)
 > 最大重叠区间数
 #### 题目描述
 给出飞机的起飞和降落时间的列表，用序列 interval 表示. 请计算出天上同时最多有多少架飞机？  
@@ -23,7 +23,7 @@ treemap只适合求overlap个数的问题
 ### 思路3：TreeMap
 其实还是扫描线算法，不过就是用TreeMap来排序罢了
 TreeMap参考：https://www.liaoxuefeng.com/wiki/1252599548343744/1265117109276544
-### lintCode-919.[meeting-rooms-ii](https://www.lintcode.com/problem/meeting-rooms-ii/description)
+### lintCode-919.[meeting-rooms-ii](https://www.lintCode.com/problem/meeting-rooms-ii/description)
 > 最大重叠区间数
 #### 题目描述
 给定一系列的会议时间间隔intervals，包括起始和结束时间[[s1,e1],[s2,e2],...] (si < ei)，找到所需的最小的会议室数量。
@@ -38,8 +38,8 @@ TreeMap参考：https://www.liaoxuefeng.com/wiki/1252599548343744/12651171092765
 就是求任一时刻同时在开会的最多会议数量就是需要的最少会议室数量，所有把会议开始时刻和会议结束时刻包装成event，count表示某一时刻同时在开的会议数量，
 扫描到一个开始event则count+，扫描到一个结束event，则count-1,
 #### 思路2：前缀和
-类似于LintCode391
-### lintcode-821.[Time Intersection](https://www.lintcode.com/problem/time-intersection/note/209862)
+类似于lintCode391
+### lintCode-821.[Time Intersection](https://www.lintCode.com/problem/time-intersection/note/209862)
 > 所有重叠区间数量
 #### 题目描述
 目前有两个用户的有序在线时间序列，每一个区间记录了该用户的登录时间点x和离线时间点y，请找出这两个用户同时在线的时间段，输出的时间段请从小到大排序。你需要返回一个intervals的列表
@@ -53,7 +53,7 @@ TreeMap参考：https://www.liaoxuefeng.com/wiki/1252599548343744/12651171092765
 #### 思路2：双指针求overlap
 seqA和seqB的数据已经是升序且同一个seq的任意两个区间不会相交，指针p1从seqA出发，p2从seqB出发，然后可以和merge array一样，如果Max(startA, startB) < Min(endA, endB)则加入相交的interval 然后看A, B end 谁大，谁留下，另外一个踢走
 > 双指针求重叠区间，必须seq1和seq2本身的区间不能重叠才行
-### leetcode-1229.Meeting Scheduler
+### leetCode-1229.Meeting Scheduler
 > 第一个符合长度要求的重叠区间
 #### 题目描述：
 Given the availability time slots arrays slots1 and slots2 of two people and a meeting duration duration, return the earliest time slot that works for both of them and is of duration duration.  
@@ -94,7 +94,7 @@ class Solution {
     }
 }
 ```
-### Leetcode-218.[The Skyline Problem-Hard](https://leetcode-cn.com/problemset/all/?search=Skyline%20problem)
+### leetCode-218.[The Skyline Problem-Hard](https://leetCode-cn.com/problemset/all/?search=Skyline%20problem)
 思路：
 题目的真正意思是输出所有的转折点（是所有建筑左右端点集合的子集，包括了一部分建筑的左端点+交点，不包括任何右端点），转折需要通过扫描经过的建筑端点高度来判断，记录上一次转折点的高度，如果本次扫描到的  
 端点的高度和上一次转折点的高度不同，则本次端点为转折点
@@ -160,7 +160,7 @@ TreeMap存放{height:count}，为什么要用TreeMap不用TreeSet，因为可能
         }
     }
 ```
-### lintcode-850.[Employee Free Time](https://www.lintcode.com/problem/employee-free-time/description)
+### lintCode-850.[Employee Free Time](https://www.lintCode.com/problem/employee-free-time/description)
 #### 描述  
 We are given a list schedule of employees, which represents the working time for each employee.  
 Each employee has a list of non-overlapping Intervals, and these intervals are in sorted order.  
@@ -221,14 +221,14 @@ Also, we wouldn't include intervals like [5, 5] in our answer, as they have zero
         }
     }
 ```
-### leetcode-554.[Brick Wall](https://leetcode-cn.com/problems/brick-wall/)
-### leetcode-729.[My Calendar I](https://leetcode-cn.com/problems/my-calendar-i/)
-### leetcode-731.[My Calendar II](https://leetcode-cn.com/problems/my-calendar-ii/)
-### leetcode-732.[My Calendar III](https://leetcode-cn.com/problems/my-calendar-iii/)
-### leetcode-391.[Perfect Rectangle](https://leetcode.com/problems/perfect-rectangle/)
-### leetcode-850.[Rectangle Area II](https://leetcode.com/problems/rectangle-area-ii/)
+### leetCode-554.[Brick Wall](https://leetCode-cn.com/problems/brick-wall/)
+### leetCode-729.[My Calendar I](https://leetCode-cn.com/problems/my-calendar-i/)
+### leetCode-731.[My Calendar II](https://leetCode-cn.com/problems/my-calendar-ii/)
+### leetCode-732.[My Calendar III](https://leetCode-cn.com/problems/my-calendar-iii/)
+### leetCode-391.[Perfect Rectangle](https://leetCode.com/problems/perfect-rectangle/)
+### leetCode-850.[Rectangle Area II](https://leetCode.com/problems/rectangle-area-ii/)
 
-### leetcode-1288.[Remove Covered Intervals](https://leetcode.com/problems/remove-covered-intervals/)
+### leetCode-1288.[Remove Covered Intervals](https://leetCode.com/problems/remove-covered-intervals/)
 #### 思路
 <strong>思路1-扫描线<strong/>  
 如果一个区间被其他区间完全包裹，就称为一个被包裹区间，求有多少个被包裹区间   
@@ -238,8 +238,8 @@ Also, we wouldn't include intervals like [5, 5] in our answer, as they have zero
 但是对于range1[1,2]和range2[1,3]这种情况你必须把range1的左端点排到range2的左端点后面，所以对于相同值的左端点排序时，右边值大拍在前面  
 但是对于range1[1,3]和range2[2,3]这种情况你必须把range1的右端点排到range2的左端点后面，所以对于相同值的右端点排序时，左边值大拍在后面  
 说明对单个端点的排序是不科学的  
-<strong>1-2 [直接对区间排序](https://leetcode-cn.com/problems/remove-covered-intervals/solution/sao-miao-xian-fa-by-liweiwei1419/) <strong/>  
+<strong>1-2 [直接对区间排序](https://leetCode-cn.com/problems/remove-covered-intervals/solution/sao-miao-xian-fa-by-liweiwei1419/) <strong/>  
 对区间根据左端点升序排序，左端点值相同的右端点值大的放在前面  
-<strong>思路2-[贪心](https://leetcode-cn.com/problems/remove-covered-intervals/solution/shan-chu-bei-fu-gai-qu-jian-by-leetcode-2/) <strong/>   
+<strong>思路2-[贪心](https://leetCode-cn.com/problems/remove-covered-intervals/solution/shan-chu-bei-fu-gai-qu-jian-by-leetCode-2/) <strong/>   
 其实思路和扫描线一样。。
 ## [扫描线Sweep Line算法总结](https://blog.csdn.net/u013325815/article/details/103957911?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-6&spm=1001.2101.3001.4242)

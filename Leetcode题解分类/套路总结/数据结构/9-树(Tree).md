@@ -115,7 +115,7 @@
 我们也无法计算pathSum(root, sum)的值，因为很可能在左子树中有一条从root.left向下延申一条路径和等于sum-root.val，但是我们并不知道是否存在多少条
 
 思路:  定义pathSumStartWithRoot(TreeNode root, int sum)返回从root节点开始向下的所有路径节点值和累计为sum的路径数量，对树中所有节点施加pathSumStartWithRoot(node, sum)统计即可
-(1)全局变量:https://leetcode.com/submissions/detail/438932880/  
+(1)全局变量:https://leetCode.com/submissions/detail/438932880/  
 (2) 
 ``` 
     // 遍历以root树中的所有节点，返回所有节点pathSumStartWithRoot(node, sum)的和

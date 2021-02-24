@@ -53,8 +53,8 @@ w+1
 (3)LC474. Ones and Zeroes  
 ## 八.股票交易
 ## 通解
-参考：https://leetcode-cn.com/circle/article/qiAgHn/
-参考：https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/discuss/108870/Most-consistent-ways-of-dealing-with-the-series-of-stock-problems
+参考：https://leetCode-cn.com/circle/article/qiAgHn/
+参考：https://leetCode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/discuss/108870/Most-consistent-ways-of-dealing-with-the-series-of-stock-problems
 ### 描述
 给一个价格数组prices[]，index=i表示第i天的股票价格为prices[i]，每天最多只能执行一个买或卖的操作，给定最多进行k手交易（一手交易包括一次买和一次卖），求能获得的最大收益，一个人最多同时只能持有一个股票
 ### 递推方程
@@ -74,6 +74,6 @@ T[i][1][0] = max(T[i-1][1][0], T[i-1][1][1] + prices[i])
 ### k=+Infinity且交易费用
 ## 121. Best Time to Buy and Sell Stock( k=1 )
 ### 九.字符串编辑
-#### leetcode-53. Maximum Subarray (Easy)
-#### leetcode-392. Is Subsequence (Medium)
+#### leetCode-53. Maximum Subarray (Easy)
+#### leetCode-392. Is Subsequence (Medium)
 >动态规划判断是否子序列,对于海量输入降低处理时间

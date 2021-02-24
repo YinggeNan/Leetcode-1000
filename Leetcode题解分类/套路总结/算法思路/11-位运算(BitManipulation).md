@@ -18,7 +18,7 @@
 构建一个集合set，集合中包括"数组的所有index、数组所有元素值、n"，将set中所有元素互相异或，
 其实就是数值范围0~n和缺少了一个值的数值范围0~n中的所有元素异或，自然就能得到缺少的那个数
 
-#### Leetcode-260.Single Number III
+#### leetCode-260.Single Number III
 >相同的数异或为0 + 与0异或不变
 
 题目描述: 给一个数组，其中只有两个数字分别只出现了一次，其他数字都出现了两次，请找出来这两个数字  
@@ -93,5 +93,5 @@ Divide it in 2 parts:
 <1>the last digit ( 1 or 0, which is " i&1 ", equivalent to " i%2 ")
 <2>the other digits (the number of 1, which is " f[i >> 1] ", equivalent to " f[i/2]")
 
-#### Leetcode-137.[Single Number II (medium)](https://leetcode-cn.com/problems/single-number-ii/)
+#### leetCode-137.[Single Number II (medium)](https://leetCode-cn.com/problems/single-number-ii/)
 #### Complement of Base 10 Number (medium)
