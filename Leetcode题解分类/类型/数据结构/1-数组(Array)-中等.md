@@ -14,6 +14,38 @@
 ##### [leetCode-56.合并区间](#_id56)
 ##### [leetCode-57.插入区间](#_id57)
 ##### [leetCode-59.螺旋矩阵 II](#_id59)
+##### [leetcode-62	不同路径]
+##### [leetcode-63	不同路径 II]  	
+##### [leetcode-64	最小路径和]  	
+##### [leetcode-73	矩阵置零]  	
+##### [leetcode-74	搜索二维矩阵]  	
+##### [leetcode-75	颜色分类]  	
+##### [leetcode-78	子集]  	
+##### [leetcode-79	单词搜索]  	
+##### [leetcode-80	删除排序数组中的重复项 II]  	
+##### [leetcode-81	搜索旋转排序数组 II]
+##### [leetcode-90	子集 II]  	
+##### [leetcode-105	从前序与中序遍历序列构造二叉树]  	
+##### [leetcode-120	三角形最小路径和]  	
+##### [leetcode-152	乘积最大子数组]  	
+##### [leetcode-153	寻找旋转排序数组中的最小值]  	
+##### [leetcode-162	寻找峰值]  	
+##### [leetcode-189	旋转数组]  	
+##### [leetcode-209	长度最小的子数组]  	
+##### [leetcode-216	组合总和 III]  	
+##### [leetcode-229	求众数 II]  	
+##### [leetcode-238	除自身以外数组的乘积]
+##### [leetcode-245	最短单词距离 III]  	
+##### [leetcode-259	较小的三数之和]  	
+##### [leetcode-277	搜寻名人]  	
+##### [leetcode-280	摆动排序]  	
+##### [leetcode-287	寻找重复数]  	
+##### [leetcode-289	生命游戏] 	
+##### [leetcode-370	区间加法]
+##### [leetcode-380	常数时间插入、删除和获取随机元素]	
+##### [leetcode-442	数组中重复的数据]
+##### [leetcode-457	环形数组循环]
+##### [leetcode-495	提莫攻击]
 
 ### leetcdoe数组中等题解:
 #### <a id="_id11">[leetCode-11.盛最多水的容器](#_link_click_group)</a>
