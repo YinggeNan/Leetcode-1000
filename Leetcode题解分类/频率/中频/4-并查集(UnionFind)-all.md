@@ -38,6 +38,8 @@
 ##### [LeetCode-1722.执行交换操作后的最小汉明距离](#_id1722)
 ##### [LeetCode-1724.检查边长度限制的路径是否存在](#_id1724)
 
+并查集基础参考1:https://www.cnblogs.com/MrSaver/p/9607552.html  
+参考2:https://github.com/CyC2018/CS-Notes/blob/master/notes/%E7%AE%97%E6%B3%95%20-%20%E5%B9%B6%E6%9F%A5%E9%9B%86.md  
 ### LeetCode-并查集(UnionFind)-all-题解
 ##### <a id="_id128">[LeetCode-128.最长连续序列](#_link_click_group)</a>
 题目描述:

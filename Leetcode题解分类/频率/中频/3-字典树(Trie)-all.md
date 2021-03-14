@@ -20,7 +20,73 @@
 ##### [LeetCode-1698.字符串的不同子字符串个数](#_id1698)
 ##### [LeetCode-1707.与数组中元素的最大异或值](#_id1707)
 
+字典树基础参考:https://leetcode-cn.com/problems/implement-trie-prefix-tree/
 ### LeetCode-字典树(Trie)-all-题解
+参考:https://blog.csdn.net/qq_43152052/article/details/101109415  
+字典树模板代码:  
+```
+class Trie {
+    TrieNode root;
+    class TrieNode{
+        private TrieNode[] kids;
+        private boolean isEnd;
+        final int R = 26;
+        TrieNode(){
+            kids = new TrieNode[R];
+        }
+        public boolean isEnd(){
+            return isEnd;
+        }
+        public void setEnd(){
+            this.isEnd = true;
+        }
+        public TrieNode getNode(char ch){
+            return kids[ch-'a'];
+        } 
+        public void setNode(char ch, TrieNode node){
+            this.kids[ch-'a'] = node;
+        }
+    }
+    /** Initialize your data structure here. */
+    public Trie() {
+        this.root = new TrieNode();
+    }
+    
+    /** Inserts a word into the trie. */
+    public void insert(String word) {
+        TrieNode node = root;
+        for(char w:word.toCharArray()){
+            if(node.getNode(w)==null){
+                node.setNode(w, new TrieNode());
+            }
+            node = node.getNode(w);
+        }
+        node.setEnd();
+    }
+    public TrieNode searchNode(String word){
+        TrieNode node = root;
+        for(char ch:word.toCharArray()){
+            if(node.getNode(ch)==null){
+                return null;
+            }
+            node = node.getNode(ch);
+        }
+        return node;
+    }
+    /** Returns if the word is in the trie. */
+    public boolean search(String word) {
+        TrieNode node = searchNode(word);
+        return node!=null && node.isEnd();
+    }
+
+    
+    /** Returns if there is any word in the trie that starts with the given prefix. */
+    public boolean startsWith(String prefix) {
+        TrieNode node = searchNode(prefix);
+        return node!=null;
+    }
+}
+```
 ##### <a id="_id208">[LeetCode-208.实现](#_link_click_group)</a>
 题目描述:
 思路:
