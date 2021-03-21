@@ -20,7 +20,9 @@
 ##### [LeetCode-1698.字符串的不同子字符串个数](#_id1698)
 ##### [LeetCode-1707.与数组中元素的最大异或值](#_id1707)
 
-字典树基础参考:https://leetcode-cn.com/problems/implement-trie-prefix-tree/
+###
+字典树基础参考:https://leetcode-cn.com/problems/implement-trie-prefix-tree/   
+字典树的两种构造方式  
 ### LeetCode-字典树(Trie)-all-题解
 参考:https://blog.csdn.net/qq_43152052/article/details/101109415  
 字典树模板代码:  

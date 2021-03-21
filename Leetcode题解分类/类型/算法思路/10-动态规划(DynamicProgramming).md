@@ -77,3 +77,15 @@ T[i][1][0] = max(T[i-1][1][0], T[i-1][1][1] + prices[i])
 #### leetCode-53. Maximum Subarray (Easy)
 #### leetCode-392. Is Subsequence (Medium)
 >动态规划判断是否子序列,对于海量输入降低处理时间
+
+#### 树型DP
+参考:https://leetcode-cn.com/problems/house-robber-iii/solution/shu-xing-dp-ru-men-wen-ti-by-liweiwei1419/
+
+leetcode-337.打家劫舍 III  
+leetcode-124.二叉树中的最大路径和  
+leetcode-543.二叉树的直径  
+leetcode-298.二叉树最长连续序列  
+leetcode-549.二叉树中最长的连续序列  
+leetcode-687.最长同值路径  
+leetcode-1372.二叉树中的最长交错路径  
+leetcode-865.具有所有最深节点的最小子树  
