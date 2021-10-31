@@ -61,17 +61,41 @@ w+1
 T[i][k]表示第i天结束时，在第0~i天最多进行k手交易后可以得到的最大收益，与T[i][k]相关的子问题有T[i-1][k],T[i-1][k-1],T[i]][k-1]，如何得到递推方程/转移方程  
 因为一个人买入一个股票前，必须这个人当前持有的股票为0，卖出一个股票前必须当前持有的股票数量为1，所以可以根据第i天可以执行的操作：buy/sell/rest来讨论  
 T[i][k][1] = max(T[i-1][k][1], T[i-1][k-1][0] - prices[i])  
-T[i][k][0] = max(T[i-1][k][0], T[i-k][k][1] + prices[Ti])
+T[i][k][0] = max(T[i-1][k][0], T[i-k][k][1] + prices[i])
+最后肯定是T[i][k][0]的收益最大,因为肯定是卖得越多收益越高
+注意: T[i][0][0]和T[i][0][1]都应该是0，应该不允许进行一手交易
 
 ## 特殊case
-### k=1，只能进行一手交易
-T[i][1][1] = max(T[i-1][1][1], T[i-1][0][0] - prices[i])
+### k=1，只能进行一手交易, leetcode-121
+T[i][1][1] = max(T[i-1][1][1], T[i-1][0][0] - prices[i]) = max(T[i-1][1][1], -prices[i])
 T[i][1][0] = max(T[i-1][1][0], T[i-1][1][1] + prices[i])
-### k=2，可以进行多手交易
-### k=+Infinity(可以进行无数手交易)
-### k为任意值
-### k=+Infinity且有冷却期
-### k=+Infinity且交易费用
+
+### k=+Infinity(可以进行无数手交易),leetcode-122
+则k和k-1是一样的
+T[i][k][1] = max(T[i-1][k][1], T[i-1][k-1][0] - prices[i]) = max(T[i-1][k][1], T[i-1][k][0] - prices[i])
+T[i][k][0] = max(T[i-1][k][0], T[i-k][k][1] + prices[i])
+
+### k=2，可以进行2手交易, leetcode-123
+T[i][2][1] = max(T[i-1][2][1], T[i-1][1][0]-prices[i])
+T[i][2][0] = max(T[i-1][2][0], T[i-1][2][1]+prices[i])
+T[i][1][1] = max(T[i-1][1][1], T[i-1][0][0]-prices[i])=max(T[i-1][1][1], -prices[i])
+T[i][1][0] = max(T[i-1][1][0], T[i-1][1][1]+prices[i])
+### k为任意值, leetcode-188
+k可以为0、1、2等
+优化: 注意到一个事实,就是一手交易至少需要两天(一天买, 一天卖), 所以当k>=n/2(n为prices数组长度)时, k等价于无穷大,
+当k<n/2时,就可以定义一个int[] v0,int[] v1,表示第i天结束的有0个stock、有1个stock的收益
+更新顺序就从k更大的向k更小的更新，一样的k时从0->1更新。
+
+### k=+Infinity且有1天冷却期, leetcode-309
+冷却期：昨天卖了股票，今天不能买，必须明天才可以买
+所以如果想要第i天买股票，则T[i-1][k][0]必须保证没有在第i-1天卖股票,既第i-1天休息,所以T[i-1][k][0] = T[i-2][k][0]
+T[i][k][1] = max(T[i-1][k][1], T[i-2][k][0]- prices[i])  
+T[i][k][0] = max(T[i-1][k][0], T[i-1][k][1] + prices[i])
+### k=+Infinity且交易费用, leetcode-714
+每笔交易都需要手续费, 可以在买入或卖出时扣除手续费
+T[i][k][1] = max(T[i-1][k][1], T[i-1][k][0] - prices[i] - fee)
+T[i][k][0] = max(T[i-1][k][0], T[i-k][k][1] + prices[i])
+因为一个股票的价格可能低于交易手续费fee,所以要取T[i][k][0]和T[i][k][1]的较大值
 ## 121. Best Time to Buy and Sell Stock( k=1 )
 ### 九.字符串编辑
 #### leetCode-53. Maximum Subarray (Easy)

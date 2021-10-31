@@ -132,11 +132,13 @@ s: "abab" p: "ab"
   s = "wordgoodgoodgoodbestword",  
   words = ["word","good","best","word"]  
 输出：[]  
-#### leetCode-845
-#### leetCode-881
-#### leetCode-904
-#### leetCode-978
-#### leetCode-992
-#### leetCode-1004
-#### leetCode-1040
-#### leetCode-1052
+
+#### LeetCode-845 
+#### LeetCode-881 
+#### LeetCode-904 
+#### LeetCode-978 
+#### LeetCode-992 
+#### LeetCode-1004 
+#### LeetCode-1040 
+#### LeetCode-1052 
+

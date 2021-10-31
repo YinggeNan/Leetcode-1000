@@ -22,10 +22,66 @@
 
 ### LeetCode-二分查找(BinarySearch)-medium-题解
 ##### <a id="_id29">[LeetCode-29.两数相除](#_link_click_group)</a>
-题目描述:
-思路:
-```
+题目描述:不使用乘法和除法得到dividend/divisor的商  
 
+
+思路:
+公式:divide = divisor*(2^n)   
+将divisor不停倍增,寻找当前dividend情况下的最大2^n  
+然后dividendNext = dividendNext  - divisor*(2^currentMaxN)  
+继续得到dividendNext对divisor的商  
+注意溢出:
+Integer.MIN_VALUE乘-1没有对应的正数,将dividend和divisor全部改为负数来运算就不会溢出了.
+divisor自增过程中可能会溢出, 溢出后就不再是负数了.  
+```
+    // divide = divisor*(2^n), 时间复杂度O(logN)
+    // 比如didivide为10, divisor为3, 10比3大,结果至少为1,3自增一倍为6, 10比6大,结果至少为2,6自增一倍为12,10小于12
+    // 所以10减去其3最大的2的倍数6为4,判断4除3的商+2就是10除以3的商->递归产生了
+    // 参考:https://leetcode-cn.com/problems/divide-two-integers/solution/po-su-de-xiang-fa-mei-you-wei-yun-suan-mei-you-yi-/
+
+    // 将dividend和divisor全部改为负数运算,就不会溢出
+    public int divide(int dividend, int divisor) {
+        boolean flag = false;
+        if(dividend == 0){
+            return 0;
+        }
+        if(divisor == 1){
+            return dividend;
+        }
+        if(divisor == -1){
+            if(dividend == Integer.MIN_VALUE){
+                return Integer.MAX_VALUE;
+            }
+            return -dividend;
+        }
+        // 题目规定不能用乘法,而且乘法会导致溢出, dividend*divisor<0
+        if((dividend<0 && divisor>0) || (dividend>0 && divisor<0)){
+            flag = true;
+        }
+        // 输入可能是-1,-1这种,必须将输入全部转化为负数
+        dividend = dividend<0?dividend:(-dividend);
+        divisor = divisor<0?divisor:(-divisor);
+        if(dividend>divisor){
+            return 0;
+        }
+        int res = div(dividend, divisor);
+        return flag?-res:res;
+    }
+    // 用long型存储 dividend 和 divisor
+    // divisor一直倍增,会导致int型溢出,用负数就不会有Intefer.MIN_VALUE溢出问题
+    public int div(int dividend, int divisor){
+        if(dividend > divisor){
+            return 0;
+        }
+        int res = 1;
+        int temp = divisor;
+        // 溢出后temp不再小于0
+        while(temp+temp < 0 && dividend<=temp+temp){
+            res += res;
+            temp += temp;
+        }
+        return res + div(dividend-temp, divisor);
+    }
 ```
 ##### <a id="_id33">[LeetCode-33.搜索旋转排序数组](#_link_click_group)</a>
 题目描述:
